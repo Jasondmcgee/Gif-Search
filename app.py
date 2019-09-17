@@ -9,6 +9,11 @@ def index():
     """Return homepage."""
     # TODO: Extract the query term from url using request.args.get()
 
+    results = top_ten()
+    list_of_gifs = results['results']
+
+    return render_template("index.html", list_of_gifs=list_of_gifs)
+
     # TODO: Make 'params' dictionary containing:
     # a) the query term, 'q'
     # b) your API key, 'key'
@@ -26,8 +31,6 @@ def index():
 
     # TODO: Render the 'index.html' template, passing the list of gifs as a
     # named parameter called 'gifs'
-
-    return render_template("index.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
